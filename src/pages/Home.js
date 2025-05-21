@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ImageUpload from "../components/ImageUpload";
@@ -9,7 +9,7 @@ const Home = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  const fetchImages = async () => {
+  const fetchImages = useCallback(async () => {
     try {
       const res = await axios.get("https://image-saver-be-1.onrender.com/api/upload", {
         headers: { Authorization: `Bearer ${token}` },
@@ -23,7 +23,7 @@ const Home = () => {
         navigate("/login");
       }
     }
-  };
+  }, [token, navigate]);
 
   const handleDelete = async (id) => {
     try {
@@ -67,7 +67,7 @@ const Home = () => {
     } else {
       fetchImages();
     }
-  }, [token, navigate]);
+  }, [token, navigate, fetchImages]); // ✅ Now fetchImages is safely included
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
