@@ -10,7 +10,7 @@ const Login = ({ setToken }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://image-saver-be-1.onrender.com/api/auth/login", {
+      const res = await axios.post("https://image-saver-be.onrender.com/api/auth/login", {
         email,
         password,
       });
