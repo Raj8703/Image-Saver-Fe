@@ -13,7 +13,7 @@ const ImageUpload = ({ token, onUploadSuccess, onError }) => {
 
     setLoading(true);
     try {
-      await axios.post("https://image-saver-be-1.onrender.com/api/upload", formData, {
+      await axios.post("https://image-saver-be.onrender.com/api/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
