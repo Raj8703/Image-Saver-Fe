@@ -96,7 +96,7 @@ const Home = () => {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {images.map((img) => {
-            const imageUrl = https://image-saver-be.onrender.com/${img.path}`;
+            const imageUrl = `https://image-saver-be.onrender.com/${img.path}`;
             const filename = img.path.split("/").pop();
             return (
               <div key={img._id} className="border p-2 rounded shadow">
