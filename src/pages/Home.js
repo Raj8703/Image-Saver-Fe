@@ -11,7 +11,7 @@ const Home = () => {
 
   const fetchImages = useCallback(async () => {
     try {
-      const res = await axios.get("https://image-saver-be-1.onrender.com/api/upload", {
+      const res = await axios.get("https://image-saver-be.onrender.com/api/upload", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setImages(res.data);
@@ -27,7 +27,7 @@ const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://image-saver-be-1.onrender.com/api/upload/${id}`, {
+      await axios.delete(`https://image-saver-be.onrender.com/api/upload/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchImages();
@@ -96,7 +96,7 @@ const Home = () => {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {images.map((img) => {
-            const imageUrl = `https://image-saver-be-1.onrender.com/${img.path}`;
+            const imageUrl = https://image-saver-be.onrender.com/${img.path}`;
             const filename = img.path.split("/").pop();
             return (
               <div key={img._id} className="border p-2 rounded shadow">
